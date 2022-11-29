@@ -1,4 +1,4 @@
 {
     "port": 8080,
-    "mongoUri": ""
+    "mongoUri": "mongodb+srv://Kettengeschwindigkeit:1488@cluster0.pufg03n.mongodb.net/app?retryWrites=true&w=majority"
 }
