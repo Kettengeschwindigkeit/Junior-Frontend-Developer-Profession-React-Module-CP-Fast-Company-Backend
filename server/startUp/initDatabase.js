@@ -30,4 +30,3 @@ async function createInitialEntity(Model, data) {
         })
     )
 }
- 
