@@ -1,4 +1,6 @@
 {
-    "port": 8080,
-    "mongoUri": "mongodb+srv://Kettengeschwindigkeit:1488@cluster0.pufg03n.mongodb.net/app?retryWrites=true&w=majority"
+    "port": 8000,
+    "mongoUri": "mongodb+srv://Kettengeschwindigkeit:1488@cluster0.pufg03n.mongodb.net/app?retryWrites=true&w=majority",
+    "accessSecret": "super secret from backend",
+    "refreshSecret": "super refresh key"
 }
