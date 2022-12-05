@@ -7,7 +7,7 @@ const schema = new Schema({
     completedMeetings: Number,
     image: String,
     profession: { type: Schema.Types.ObjectId, ref: 'Profession' },
-    qualities: { type: Schema.Types.ObjectId, ref: 'Quality' },
+    qualities: [{ type: Schema.Types.ObjectId, ref: 'Quality' }],
     rate: Number,
     sex: { type: String, enum: ['male', 'female', 'other'] }
 }, {

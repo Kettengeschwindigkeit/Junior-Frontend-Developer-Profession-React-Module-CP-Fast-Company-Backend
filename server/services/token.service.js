@@ -4,6 +4,7 @@ const Token = require('../models/Token')
 
 class TokenService {
     generate(payload) {
+        console.log(payload)
         const accessToken = jwt.sign(payload, config.get('accessSecret'), {
             expiresIn: '1h'
         })

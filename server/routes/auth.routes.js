@@ -24,7 +24,6 @@ router.post('/signUp', [
             }
 
             const { email, password } = req.body
-
             const existingUser = await User.findOne({ email })
 
             if (existingUser) {
@@ -46,7 +45,7 @@ router.post('/signUp', [
 
             const tokens = tokenService.generate({ _id: newUser._id })
             await tokenService.save(newUser._id, tokens.refreshToken)
-
+ 
             res.status(201).send({ ...tokens, userId: newUser._id })
 
         } catch (e) {
