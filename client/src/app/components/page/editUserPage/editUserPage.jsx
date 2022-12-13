@@ -40,6 +40,7 @@ const EditUserPage = () => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
+        console.log(data);
         dispatch(
             updateUser({
                 ...data,
@@ -47,6 +48,7 @@ const EditUserPage = () => {
             })
         );
     };
+
     function getQualitiesListByIds(qualitiesIds) {
         const qualitiesArray = [];
         for (const qualId of qualitiesIds) {
@@ -97,7 +99,9 @@ const EditUserPage = () => {
             }
         }
     };
+
     useEffect(() => validate(), [data]);
+
     const handleChange = (target) => {
         setData((prevState) => ({
             ...prevState,

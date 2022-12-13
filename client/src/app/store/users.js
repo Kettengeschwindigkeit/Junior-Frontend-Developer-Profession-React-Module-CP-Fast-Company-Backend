@@ -22,7 +22,7 @@ const initialState = localStorageService.getAccessToken()
           dataLoaded: false
       };
 
-const usersSlice = createSlice({
+export const usersSlice = createSlice({
     name: "users",
     initialState,
     reducers: {
@@ -129,12 +129,23 @@ export const loadUsersList = () => async (dispatch) => {
         dispatch(usersRequestFiled(error.message));
     }
 };
+
 export const updateUser = (payload) => async (dispatch) => {
     dispatch(userUpdateRequested());
     try {
         const { content } = await userService.update(payload);
         dispatch(userUpdateSuccessed(content));
         history.push(`/users/${content._id}`);
+    } catch (error) {
+        dispatch(userUpdateFailed(error.message));
+    }
+};
+
+export const setBookmark = (payload) => async (dispatch) => {
+    dispatch(userUpdateRequested());
+    try {
+        const { content } = await userService.update(payload);
+        dispatch(userUpdateSuccessed(content));
     } catch (error) {
         dispatch(userUpdateFailed(error.message));
     }
@@ -157,4 +168,5 @@ export const getDataStatus = () => (state) => state.users.dataLoaded;
 export const getUsersLoadingStatus = () => (state) => state.users.isLoading;
 export const getCurrentUserId = () => (state) => state.users.auth.userId;
 export const getAuthErrors = () => (state) => state.users.error;
+
 export default usersReducer;

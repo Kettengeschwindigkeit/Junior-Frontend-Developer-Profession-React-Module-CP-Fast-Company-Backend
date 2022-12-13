@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-const BookMark = ({ status, ...rest }) => {
+const BookMark = ({ favs, id, ...rest }) => {
+    const status = favs.includes(id);
+
     return (
         <button {...rest}>
             <i className={"bi bi-bookmark" + (status ? "-heart-fill" : "")}></i>
@@ -8,7 +10,8 @@ const BookMark = ({ status, ...rest }) => {
     );
 };
 BookMark.propTypes = {
-    status: PropTypes.bool
+    favs: PropTypes.array,
+    id: PropTypes.string
 };
 
 export default BookMark;
