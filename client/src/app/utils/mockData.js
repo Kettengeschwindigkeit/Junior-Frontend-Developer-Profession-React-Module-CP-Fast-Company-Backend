@@ -23,6 +23,9 @@ const useMockData = () => {
         setCount((prevState) => prevState + 1);
     };
     const updateProgress = () => {
+        if (progress === 100) {
+            return;
+        }
         if (count !== 0 && status === statusConsts.idle) {
             setStatus(statusConsts.pending);
         }
